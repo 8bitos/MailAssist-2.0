@@ -212,7 +212,9 @@
       </div>
       <div class="button-container2">
         <button onclick="generatePDF()">Jadikan PDF</button>
+        
         <a href="merge.html"><button>Tambahkan Lampiran</button></a>
+        <button onclick="clearAllEditable()">Clear All Editable</button>
       </div>
       
     </div>
@@ -353,6 +355,70 @@
         selectedButton.classList.add('selected');
       }
     </script>
+    <script>
+      function clearAllEditable() {
+        const editableElements = document.querySelectorAll('[contenteditable="false"]');
+        editableElements.forEach(element => {
+          switch (element.className) {
+            case 'home-text':
+              element.innerHTML = `
+                <span class="placeholder">Masukkan Judul</span>`;
+              break;
+            case 'home-text03':
+              element.innerHTML = '<span class="placeholder">Tempat, Tanggal</span>';
+              break;
+            case 'home-text22':
+              element.innerHTML = `
+                <span class="placeholder">Nomor</span> 
+                <br />
+                <span class="placeholder">Klasifikasi</span>                  <br />
+                <span class="placeholder">Lampiran</span> 
+                <br />
+                <span class="placeholder">Perihal</span> 
+                <br />
+              `;
+              break;
+            case 'home-text37':
+              element.innerHTML = `
+                <span class="placeholder">1. </span>
+                <br />
+                <span class="placeholder">2. </span>
+                <br />
+                <span class="placeholder">3. </span>
+                <br />
+              `;
+              break;
+            case 'home-text52':
+              element.innerHTML = `<span class="placeholder">a.</span>`;
+              break;
+            case 'home-text53':
+              element.innerHTML = `<span class="placeholder">b.</span>`;
+              break;
+            case 'home-text54':
+              element.innerHTML = `<span class="placeholder">2.</span>`;
+              break;
+            case 'home-text55':
+              element.innerHTML = `<span class="placeholder">3.</span>`;
+              break;
+            case 'home-text56':
+              element.innerHTML = `
+                <span class="placeholder">Penandatangan</span>
+              `;
+              break;
 
+              case 'home-text61':
+              element.innerHTML = `
+                <span class="placeholder">Nama Penanda Tangan</span>
+              `;
+              break;
+      
+            default:
+              break;
+          }
+        });
+      }
+
+      
+          </script>
   </body>
 </html>
